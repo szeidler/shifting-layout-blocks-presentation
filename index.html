@@ -1,0 +1,179 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <title>How to replace Entitqueue with Layout Builder and Shifting Blocks</title>
+
+  <link rel="stylesheet" href="css/reveal.css">
+  <link rel="stylesheet" href="css/theme/black.css">
+
+  <!-- Theme used for syntax highlighting of code -->
+  <link rel="stylesheet" href="lib/css/zenburn.css">
+
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+    document.getElementsByTagName('head')[0].appendChild(link);
+  </script>
+</head>
+<body>
+<div class="reveal">
+  <div class="slides">
+    <section>
+      <h1>How to replace Entitqueue…</h1>
+      <h3>with Layout Builder and Shifting Blocks</h3>
+      <p>
+        <small>Drupal.org: <a href="https://www.drupal.org/u/szeidler" target="_blank">@szeidler</a></small>
+      </p>
+    </section>
+
+    <section>
+      <section>
+        <h2>Our scenario</h2>
+        <ul>
+          <li>A newspaper / magazine</li>
+          <li class="fragment">A lot of articles on the frontpage</li>
+          <li class="fragment">Changing quite often</li>
+          <li class="fragment">Different looks of a teaser</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Our scenario</h2>
+        <p><img src="img/scenario.png" style="background:none; border:none; box-shadow:none; max-width:500px;" alt=""></p>
+      </section>
+
+      <section>
+        <h2>Let's take views</h2>
+        <ul>
+          <li class="fragment">Drupal core</li>
+          <li class="fragment">List based</li>
+          <li class="fragment">Filters, e.g. per node type</li>
+          <li class="fragment">Sort criteria's, e.g. by date</li>
+          <li class="fragment">No manual work required for the author</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>And the client so…</h3>
+        <blockquote>I want to prioritize content</blockquote>
+      </section>
+
+      <section>
+        <h3>Thanks Drupal…</h3>
+        <p><img src="img/drupal-promote.png" style="background:none; border:none; box-shadow:none; max-width:500px;" alt=""></p>
+      </section>
+
+      <section>
+        <h3>And the client so…</h3>
+        <blockquote>But, I want to change the order manually</blockquote>
+      </section>
+
+      <section>
+        <h3>Thanks EntityQueue</h3>
+        <p><img src="img/entityqueue.png" style="background:none; border:none; box-shadow:none; max-width:500px;" alt=""></p>
+        <p class="fragment">Looks nice, doesn't it?</p>
+        <p class="fragment">And so Drupal…</p>
+      </section>
+
+      <section>
+        <h3>Entityqueue</h3>
+        <ul>
+          <li>Every item needs to be added manually</li>
+          <li>Can be reordered manually</li>
+          <li>Can have a limit</li>
+          <li>Can be filled up automatically with hooks</li>
+          <li class="fragment">…</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>And the client so…</h3>
+        <blockquote>But I have different languages</blockquote>
+        <p class="fragment">Use Entityqueue subqueues</p>
+        <p class="fragment"><img src="img/subqueues.png" style="background:none; border:none; box-shadow:none; max-width:500px;" alt=""></p>
+      </section>
+
+      <section>
+        <h3>And the client so…</h3>
+        <p>I want to:</p>
+        <ul>
+          <li class="fragment">Have different article teaser styles</li>
+          <li class="fragment">Moderate my frontpage</li>
+          <li class="fragment">Schedule my frontpage changes</li>
+          <li class="fragment">Change the grid for article teasers</li>
+        </ul>
+      </section>
+
+      <section>
+        <img src="img/imdone.gif" style="background:none; border:none; box-shadow:none;" alt="">
+      </section>
+
+    </section>
+
+    <section>
+     <h2>Let's be creative</h2>
+     <p class="fragment">Why not using Layout Builder</p>
+     <img class="fragment" src="img/layoutbuilder.png" style="background:none; border:none; box-shadow:none; max-width:600px;" alt="">
+    </section>
+
+    <section>
+     <h3>Demo time</h3>
+    </section>
+
+    <section>
+     <h3>Benefits</h3>
+     <ul>
+      <li>It's visual</li>
+      <li>It's predictable</li>
+      <li>It's using mostly Core</li>
+      <li>It's comes with every benefit the node system provides</li>
+     </ul>
+    </section>
+
+    <section>
+      <h3>So, what do you think?</h3>
+    </section>
+
+  </div>
+</div>
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.js"></script>
+
+<script>
+  // More info about config & dependencies:
+  // - https://github.com/hakimel/reveal.js#configuration
+  // - https://github.com/hakimel/reveal.js#dependencies
+  Reveal.initialize({
+    dependencies: [
+      {src: 'plugin/markdown/marked.js'},
+      {src: 'plugin/markdown/markdown.js'},
+      {src: 'plugin/notes/notes.js', async: true},
+      {
+        src: 'plugin/highlight/highlight.js',
+        async: true,
+        callback: function () {
+          hljs.initHighlightingOnLoad();
+        }
+      }
+    ]
+  });
+
+  // Avoid sliding to early to the next horizontal section, when doing the presentation.
+  // TODO: Remove when publishing it to github.
+  Reveal.configure({
+    keyboard: {
+      37: Reveal.prev, // left
+      38: Reveal.prev, // up
+      39: Reveal.next, // right
+      40: Reveal.next, // down
+    }
+  });
+</script>
+</body>
+</html>
